@@ -1,0 +1,164 @@
+#DUXSUS_i3_CONFIG
+
+# Set mod key (Mod1=<Alt>, Mod4=<Super>)
+set $mod Mod4
+
+new_window pixel 1
+new_float normal
+
+hide_edge_borders none
+
+bindsym CTRL+1 border none
+bindsym CTRL+2 border pixel 1
+bindsym CTRL+3 border normal
+
+# Font for window titles
+font xft:URWGothic-Book 11
+
+# drag floating windows
+floating_modifier $mod
+
+# start a $myTerm
+set $myTerm st
+bindsym $mod+Return exec $myTerm -e kitty
+
+# kill focused window
+bindsym $mod+Shift+c kill
+
+# program launcher
+bindsym $mod+Shift+Return exec --no-startup-id rofi -show run
+
+# launch  menu
+bindsym $mod+' exec --no-startup-id morc_menu
+
+# Apps Launched with <SUPER> + <KEYPAD 1-9>
+#bindsym $mod+KP_End exec $myTerm
+#bindsym $mod+KP_Page_Down exec $myTerm -
+#bindsym $mod+KP_Begin exec $myTerm -e neomutt
+#bindsym $mod+KP_Home exec $myTerm
+#bindsym $mod+KP_Home exec $myTerm
+#bindsym $mod+KP_Home exec $myTerm
+#bindsym $mod+KP_Home exec $myTerm
+#bindsym $mod+KP_Page_Up exec $myTerm
+
+bindsym $mod+KP_Down exec $myTerm thunar
+bindsym $mod+KP_Left exec $myTerm flatpak run com.vscodium.codium
+bindsym $mod+KP_Right exec $myTerm flatpak run io.atom.Atom
+bindsym $mod+KP_Up exec $myTerm ranger
+
+# Apps Launched with <SUPER> + <SHIFT> + <KEYPAD 1-9>
+#bindsym $mod+Shift+KP_1 exec $myTerm -e
+#bindsym $mod+Shift+KP_2 exec $myTerm -e
+#bindsym $mod+Shift+KP_3 exec $myTerm -e
+#bindsym $mod+Shift+KP_4 exec $myTerm -e
+#bindsym $mod+Shift+KP_5 exec $myTerm -e
+#bindsym $mod+Shift+KP_6 exec $myTerm -e
+#bindsym $mod+Shift+KP_7 exec $myTerm -e
+#bindsym $mod+Shift+KP_8 exec $myTerm -e
+bindsym $mod+Shift+KP_9 exec $myTerm -e vim ~/.config/i3/config
+
+# Apps Launched with <SUPER> + <CTRL> + <KEYPAD 1-9>
+#bindsym $mod+Ctrl+KP_> exec $myTerm
+
+bindsym $mod+F1 exec
+bindsym $mod+F2 exec
+bindsym $mod+F3 exec
+bindsym $mod+F5 exec $myTerm -e
+bindsym $mod+F6 exec $myterm -e
+bindsym $mod+F7 exec
+bindsym $mod+F8 exec
+bindsym $mod+F9 exec
+bindsym $mod+F10 exec
+bindsym $mod+F11 exec
+bindsym $mod+F12 exec
+
+# $mod+top
+bindsym $mod+q
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+r
+bindsym $mod+t
+bindsym $mod+y
+bindsym $mod+u
+bindsym $mod+i
+bindsym $mod+o
+bindsym $mod+p
+
+# $mod+center
+bindsym $mod+a
+bindsym $mod+s layout stacking
+bindsym $mod+d
+bindsym $mod+f fullscreen toggle
+bindsym $mod+g
+bindsym $mod+h split h;exec notify-send 'tile horizontally'
+bindsym $mod+j
+bindsym $mod+k
+bindsym $mod+l
+
+# $mod+bottom
+bindsym $mod+z
+bindsym $mod+x
+bindsym $mod+c
+bindsym $mod+v split v;exec notify-send 'tile vertically'
+bindsym $mod+b split toggle
+bindsym $mod+n
+bindsym $mod+m
+
+# change focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# change container layout (stacked, tabbed, toggle split)
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+#bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# toggle sticky
+# bindsym $mod+Shift+s sticky toggle
+#bindsym $mod+Shift+s exec ~/.i3/i3-display-swap.sh
+
+# Workspace names
+# to display names or symbols instead of plain workspace numbers you can use
+# something like: set $ws1 1:mail
+#                 set $ws2 2:
+set $ws1 1:Sys-Admin
+set $ws2 2:Workflow1
+set $ws3 3:Browser
+set $ws4 4:Editors
+set $ws5 5:DE
+set $ws6 6:Workflow2
+set $ws7 7:Workflow3
+set $ws8 8:Backround
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+
+
+
+
+
+
+
+# sound-section
+exec --no-startup-id volumeicon
+#exec --no-startup-id pulseaudio
+#exec --no-startup-id pa-applet
+
+# Screen brightness controls
+# bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
+# bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
